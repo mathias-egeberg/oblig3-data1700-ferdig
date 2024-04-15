@@ -2,12 +2,10 @@
 @import "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap";
 
 
-body {
-    font-family: "Platypi", serif;
-    color: aqua;
+.navbar{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: x-large;
 }
-
-
 
 .custom-header {
     background-color: #4CAF50; /* Green */
