@@ -2,6 +2,7 @@ package org.example.oblig3data1700hoved;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,12 +21,12 @@ public class Controller {
         rep.lagreBilett(innBilett);
     }
 
-    @PostMapping("/hentAlle")
+    @GetMapping("/hentAlle")
     public List<Bilett> hentAlle(){
         return rep.hentAlle();
     }
 
-    @PostMapping("/slettAlle")
+    @GetMapping("/slettAlle")
     public void slettAlle(){
         rep.slettAlle();
     }
