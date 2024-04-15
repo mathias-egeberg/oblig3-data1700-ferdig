@@ -26,7 +26,7 @@ public class Repository {
     }
 
     public void slettAlle(){
-        String sql = "DROP TABLE billett";
+        String sql = "DELETE FROM billett";
         db.update(sql);
     }
 
