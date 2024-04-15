@@ -15,18 +15,18 @@ public class Repository {
 
 
     public void lagreBilett(Bilett innBilett){
-        String sql = "INSERT INTO Bilett (film, antall, navn, telefon, epost) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO bilett (film, antall, navn, telefon, epost) VALUES(?,?,?,?,?)";
         db.update(sql,innBilett.getFilm(), innBilett.getAntall(), innBilett.getNavn(), innBilett.getTelefon(), innBilett.getEpost());
     }
 
     public List<Bilett> hentAlle(){
-        String sql = "SELECT * FROM Bilett";
+        String sql = "SELECT * FROM bilett";
         List<Bilett> alleBiletter = db.query(sql, new BeanPropertyRowMapper<>(Bilett.class));
         return alleBiletter;
     }
 
     public void slettAlle(){
-        String sql = "DROP TABLE Bilett";
+        String sql = "DROP TABLE bilett";
         db.update(sql);
     }
 
