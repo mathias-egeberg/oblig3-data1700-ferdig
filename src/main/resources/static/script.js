@@ -57,12 +57,22 @@ function slettAlle(){
     })
 }
 
+function slettEn(id){
+    console.log("Trykker");
+    const url = "slettEn?id=" + id;
+    $.post(url, function(){
+        window.location.href = "/order.html";
+    });
+}
 
 function formaterOutput(bilettene){
-    let ut = "<table><tr><th>Film</th><th>Antall</th><th>Navn</th><th>Telefon</th><th>Epost</th></tr>";
+    let ut = "<table><tr><th>Film</th><th>Antall</th><th>Navn</th><th>Telefon</th><th>Epost</th><th>Kommando</th></tr>";
     for (const biletter of bilettene){
-        ut+="<tr><td>"+biletter.film+"</td><td>"+biletter.antall+"</td><td>"+biletter.navn+"</td><td>"+biletter.telefon+"</td><td>"+biletter.epost+"</td></tr>";
+        ut+="<tr><td>"+biletter.film+"</td><td>"+biletter.antall+"</td><td>"+biletter.navn+"</td><td>"+biletter.telefon+"</td><td>"+biletter.epost+"</td><td><button class='btn btn-danger' onclick='slettEn("+biletter.id+")'>Slett</button></td></tr>";
     }
     ut+="</table>";
     $("#output").html(ut);
 }
+
+//Funksjon for å laste inn dataene automatisk
+window.addEventListener("load", hentAlle);

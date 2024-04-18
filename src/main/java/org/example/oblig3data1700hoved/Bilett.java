@@ -1,13 +1,15 @@
 package org.example.oblig3data1700hoved;
 
 public class Bilett {
+    private int id;
     private String film;
     private String antall;
     private String navn;
     private String telefon;
     private String epost;
 
-    public Bilett (String film, String antall, String navn, String telefon, String epost){
+    public Bilett (int id, String film, String antall, String navn, String telefon, String epost){
+        this.id = id;
         this.film = film;
         this.antall = antall;
         this.navn = navn;
@@ -16,6 +18,14 @@ public class Bilett {
     }
 
     public Bilett(){}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getFilm() {
         return film;

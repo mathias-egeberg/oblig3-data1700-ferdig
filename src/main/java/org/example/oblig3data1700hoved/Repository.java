@@ -30,4 +30,9 @@ public class Repository {
         db.update(sql);
     }
 
+    public void slettEn(int innId){
+        String sql = "DELETE FROM billett where ID=?";
+        db.update(sql, innId);
+    }
+
 }
