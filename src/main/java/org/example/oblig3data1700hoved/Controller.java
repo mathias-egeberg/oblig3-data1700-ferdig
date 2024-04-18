@@ -32,4 +32,13 @@ public class Controller {
     @DeleteMapping("/slettEn")
     public void slettEn(@RequestParam("id") int innId){rep.slettEn(innId);}
 
+    @GetMapping("/hentEnBillett")
+    public Bilett hentEn(@RequestParam("id") int id) {
+        return rep.hentEnBilett(id);
+    }
+
+    @PostMapping("/oppdaterBillett")
+    public void oppdaterBillett(@RequestBody Bilett billett){
+        rep.oppdaterBillett(billett);
+    }
 }

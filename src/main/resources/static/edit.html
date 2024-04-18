@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bilettkjøp - applikasjon</title>
+    <title>Rediger billett</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
@@ -26,7 +26,7 @@
                     <a class="nav-link"  href="index.html">Hjem</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="order.html">Bestilling</a>
+                    <a class="nav-link" href="order.html">Bestilling</a>
             </ul>
         </div>
     </div>
@@ -36,10 +36,13 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-5">
-            <h2>Legg inn bestilling her</h2>
-            <form class="form" style="padding-right: 40%">
+        <div class="col-md-6">
+            <h2>Rediger bestilling for navn....</h2>
+            <form class="form" style="padding-right: 50%">
                 <div class="form-group">
+                    <div class="form-group">
+                        <p id="bilettId"></p>
+                    </div>
                     <label for="dropdown">Velg film:</label>
                     <select id="dropdown">
                         <option value="" disabled selected>Velg film her</option>
@@ -69,21 +72,8 @@
             </form>
             <br>
             <div>
-                <button class="btn btn-success" onclick="regData()">Kjøp bilett</button>
-                <button class="btn btn-outline-info" onclick="hentAlle()">Hent biletter</button>
-                <button class="btn btn-outline-danger" onclick="slettAlle()">Slett bieltter</button>
+                <button class="btn btn-outline-info" onclick="endreBilletten()">Oppdater billett</button>
             </div>
-        </div>
-        <div class="col-md-7">
-            <h2>Dine biletter</h2>
-            <div class="container">
-                <table class="table table-striped custom-table-width" id="output">
-
-                </table>
-            </div>
-
-
-
         </div>
     </div>
 </div>

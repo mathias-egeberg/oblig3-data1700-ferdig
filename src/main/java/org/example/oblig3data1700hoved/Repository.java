@@ -35,4 +35,14 @@ public class Repository {
         db.update(sql, innId);
     }
 
+    public Bilett hentEnBilett(int id){
+        String sql = "SELECT * FROM billett WHERE ID=?";
+        Bilett enBilett = db.queryForObject(sql, BeanPropertyRowMapper.newInstance(Bilett.class),id);
+        return enBilett;
+    }
+
+    public void oppdaterBillett(Bilett billett) {
+        String sql = "UPDATE billett SET film=?, antall=?, navn=?, telefon=?, epost=? WHERE ID=?";
+        db.update(sql, billett.getFilm(), billett.getAntall(), billett.getNavn(), billett.getTelefon(), billett.getEpost(), billett.getId());
+    }
 }
