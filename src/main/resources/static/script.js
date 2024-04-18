@@ -92,6 +92,9 @@ $(function(){
         $("#navn").val(bilett.navn);
         $("#telefon").val(bilett.telefon);
         $("#epost").val(bilett.epost);
+        //For dynamisk innhold (for navn og billettnummer)
+        $("#name-tag").text(bilett.navn);
+        $("#billett-nummer").text(bilett.id);
     });
 });
 

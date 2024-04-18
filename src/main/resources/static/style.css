@@ -11,3 +11,12 @@
     background-color: #4CAF50; /* Green */
     color: white;
 }
+
+#name-tag{
+    color: darkgoldenrod;
+    font-style: italic;
+}
+
+#billett-nummer{
+    font-weight: bold;
+}
