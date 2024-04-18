@@ -68,43 +68,6 @@ function slettEn(id){
     });
 }
 
-$(function(){
-    console.log("laster inn ønsket billett");
-    // hent kunden med kunde-id fra url og vis denne i skjemaet
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get('id');
-    const url = "/hentEnBillett?" + id;
-    $.get(url, function(bilett){
-        $("#bilettId").val(bilett.id);
-        $("#dropdown").val(bilett.film);
-        $("#antall").val(bilett.antall);
-        $("#navn").val(bilett.navn);
-        $("#telefon").val(bilett.telefon);
-        $("#epost").val(bilett.epost);
-    });
-});
-
-function endreBilletten() {
-    const kunde = {
-        id: $("#bilettId").val(),
-        film: $("#dropdown").val(),
-        antall: $("#antall").val(),
-        navn: $("#navn").val(),
-        telefon: $("#telefon").val(),
-        epost: $("#epost").val()
-    };
-
-    $.ajax({
-        url: "/oppdaterBillett",
-        type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(kunde),
-        success: function() {
-            window.location.href = "/order.html";
-        }
-    });
-}
-
 function formaterOutput(bilettene){
     let ut = "<table><tr><th>Film</th><th>Antall</th><th>Navn</th><th>Telefon</th><th>Epost</th><th>Kommando</th></tr>";
     for (const biletter of bilettene){
@@ -115,5 +78,40 @@ function formaterOutput(bilettene){
     $("#output").html(ut);
 }
 
-//Funksjon for å laste inn dataene automatisk
+//For endring av entry på databasen
+
+$(function(){
+// hent kunden med kunde-id fra url og vis denne i skjemaet
+    const id = window.location.search.substring(1);
+    const url = "/hentEnBillett?"+id;
+    console.log(id)
+    $.get(url, function(bilett){
+        $("#bilettId").val(bilett.id); // må ha med id inn skjemaet, hidden i html
+        $("#dropdown").val(bilett.film);
+        $("#antall").val(bilett.antall);
+        $("#navn").val(bilett.navn);
+        $("#telefon").val(bilett.telefon);
+        $("#epost").val(bilett.epost);
+    });
+});
+
+function
+endreBillett() {
+    const billett = {
+        id : $("#bilettId").val(),
+        // må ha med denne som ikke har blitt endret for å vite hvilken kunde som skal endres
+        film: $("#dropdown").val(),
+        antall: $("#antall").val(),
+        navn : $("#navn").val(),
+        telefon: $("#telefon").val(),
+        epost: $("#epost").val()
+    }
+    $.post("/endreEnBillett",billett,function(){
+        window.location.href = "/order.html";
+    });
+}
+
+
+
+//Funksjon for å laste inn dataene automatisk i tabellen
 window.addEventListener("load", hentAlle);

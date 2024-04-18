@@ -37,8 +37,8 @@ public class Controller {
         return rep.hentEnBilett(id);
     }
 
-    @PostMapping("/oppdaterBillett")
-    public void oppdaterBillett(@RequestBody Bilett billett){
-        rep.oppdaterBillett(billett);
+    @PostMapping("/endreEnBillett")
+    public void endreEn(Bilett innBilett){
+        rep.endreEnBillett(innBilett);
     }
 }
