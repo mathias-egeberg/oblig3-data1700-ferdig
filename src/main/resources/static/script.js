@@ -58,10 +58,13 @@ function slettAlle(){
 }
 
 function slettEn(id){
-    console.log("Trykker");
     const url = "slettEn?id=" + id;
-    $.post(url, function(){
-        window.location.href = "/order.html";
+    $.ajax({
+        url: url,
+        type: 'DELETE',
+        success: function (result){
+            hentAlle();
+        }
     });
 }
 
