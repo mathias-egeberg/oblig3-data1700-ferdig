@@ -38,7 +38,5 @@ public class Controller {
     }
 
     @PostMapping("/endreEnBillett")
-    public void endreEn(Bilett innBilett){
-        rep.endreEnBillett(innBilett);
-    }
+    public void endreEnBillett(Bilett endreBilletten){rep.endreEnBillett(endreBilletten);}
 }

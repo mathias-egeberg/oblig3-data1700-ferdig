@@ -42,8 +42,8 @@ public class Repository {
     }
 
     public void endreEnBillett(Bilett billett) {
-        String sql = "UPDATE billett SET film=?, antall=?, navn=?, telefon=?, epost=? WHERE id=?";
-        db.update(sql, billett.getFilm(), billett.getAntall(), billett.getNavn(), billett.getTelefon(), billett.getEpost(), billett.getId());
+        String sql = "UPDATE billett SET film=?, antall=?, navn=?, telefon=?, epost=?";
+        db.update(sql, billett.getFilm(), billett.getAntall(), billett.getNavn(), billett.getTelefon(), billett.getEpost());
     }
 
 
